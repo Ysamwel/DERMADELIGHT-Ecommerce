@@ -1,16 +1,27 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const dotenv = require('dotenv');
-
-dotenv.config();
-
-const app = express();
-app.use(express.json());
-app.use(cors());
+const express = require('express')
+const cors = require('cors')
+const cookieParser = require('cookie-parser')
+require('dotenv').config()
+const connectDB = require('./config/db')
+const router = require('./routes')
 
 
+const app = express()
+app.use(cors({
+    origin : process.env.FRONTEND_URL,
+    credentials : true
+}))
+app.use(express.json())
+app.use(cookieParser())
 
-app.listen(5000, () => {
-  console.log('Server is running on port 5000');
-});
+app.use("/api",router)
+
+const PORT = 8080 || process.env.PORT
+
+
+connectDB().then(()=>{
+    app.listen(PORT,()=>{
+        console.log("connnect to DB")
+        console.log("Server is running "+PORT)
+    })
+})
