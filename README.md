@@ -1,2 +1,2 @@
-# DERMADELIGHT - ECOMMERCE
+# DERMADELIGHT:cup:
  An application
