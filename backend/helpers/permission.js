@@ -1,5 +1,7 @@
+ // Import the userModel module
 const userModel = require("../models/userModel")
 
+// Fetched UserId 
 const uploadProductPermission = async(userId) => {
     const user = await userModel.findById(userId)
 
@@ -12,3 +14,5 @@ const uploadProductPermission = async(userId) => {
 
 
 module.exports = uploadProductPermission
+
+
