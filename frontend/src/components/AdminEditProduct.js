@@ -1,3 +1,4 @@
+//Editing products components
 import React, { useState } from 'react'
 import { CgClose } from "react-icons/cg";
 import productCategory from '../helpers/productCategory';
