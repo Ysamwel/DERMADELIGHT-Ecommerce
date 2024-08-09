@@ -1,5 +1,6 @@
 const imageTobase64 = async(image) =>{
     const reader = new FileReader()
+    
     reader.readAsDataURL(image)
 
     const data = await new Promise((resolve,reject)=>{
@@ -9,7 +10,6 @@ const imageTobase64 = async(image) =>{
     })
 
     return data
-
 }
 
 export default imageTobase64
